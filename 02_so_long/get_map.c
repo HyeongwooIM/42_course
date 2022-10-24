@@ -6,7 +6,7 @@
 /*   By: him <him@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 11:19:42 by him               #+#    #+#             */
-/*   Updated: 2022/10/20 12:34:16 by him              ###   ########.fr       */
+/*   Updated: 2022/10/24 16:16:11 by him              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,22 @@ char	*ft_strdup(const char *str)
 
 void	node_copy(char *str, t_param *param)
 {
-	t_map	*line;
+	t_map	*node;
 	t_map	*return_map;
 
 	return_map = param->map;
-	line = malloc(sizeof(t_map));
-	if (!line)
+	node = malloc(sizeof(t_map));
+	if (!node)
 		error_exit("line malloc fail");
-	line->next = 0;
-	line->line = ft_strdup(str);
+	node->next = 0;
+	node->line = ft_strdup(str);
 	if (!param->map)
-		param->map = line;
+		param->map = node;
 	else
 	{
 		while (return_map->next)
 			return_map = return_map->next;
-		return_map->next = line;
+		return_map->next = node;
 	}
 }
 

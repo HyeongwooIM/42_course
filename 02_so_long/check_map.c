@@ -6,7 +6,7 @@
 /*   By: him <him@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 11:32:21 by him               #+#    #+#             */
-/*   Updated: 2022/10/20 12:34:02 by him              ###   ########.fr       */
+/*   Updated: 2022/10/20 15:13:27 by him              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	check_map(t_param *param)
 
 	map_len = check_map_len(param);
 	param->win_height = map_len * param->img_height;
-	param->win_width = (ft_strlen(param->map->line) - 1) * param->img_width;
+	param->win_width = (ft_strlen(param->map->line)) * param->img_width;
 	check_wall(param, map_len);
 	check_map_item(param);
 }

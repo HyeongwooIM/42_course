@@ -6,7 +6,7 @@
 /*   By: him <him@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 13:48:23 by him               #+#    #+#             */
-/*   Updated: 2022/10/20 14:20:32 by him              ###   ########.fr       */
+/*   Updated: 2022/10/20 15:15:28 by him              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,8 @@ int	main(int argc, char **argv)
 	if (argc < 2 || file_name_check(argv[1]))
 		error_exit("인자 확인");
 	param.map_name = argv[1];
-	param.img_height = 64;
-	param.img_width = 64;
+	param.img_height = 32;
+	param.img_width = 32;
 	set_param(&param);
 	get_map(&param);
 	check_map(&param);
