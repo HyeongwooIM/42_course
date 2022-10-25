@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pipex_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: him <him@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 13:54:56 by him               #+#    #+#             */
-/*   Updated: 2022/10/24 20:07:45 by him              ###   ########.fr       */
+/*   Created: 2022/10/25 14:07:14 by him               #+#    #+#             */
+/*   Updated: 2022/10/25 14:07:27 by him              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-#include <stdio.h>
 
-int	main(int argc, char **argv)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int	pid;
+	size_t	i;
+	size_t	hlen;
+	size_t	nlen;
 
-	if (argc < 0 || !*argv)
-		return (1);
-	pid = fork();
-	if (pid == 0)
-		printf("1\n");
-	if (pid == 1)
-		printf("2\n");
+	if (!*needle)
+		return ((char *)haystack);
+	hlen = ft_strlen(haystack);
+	nlen = ft_strlen(needle);
+	i = 0;
+	if (hlen < nlen || len < nlen)
+		return (0);
+	while (i + nlen <= len)
+	{
+		if (haystack[i] == *needle && !ft_strncmp(haystack + i, needle, nlen))
+			return ((char *)haystack + i);
+		i++;
+	}
 	return (0);
 }
