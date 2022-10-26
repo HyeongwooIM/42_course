@@ -3,17 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: him <him@student.42seoul.kr>               +#+  +:+       +#+         #
+#    By: woohyeong <woohyeong@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 12:25:30 by him               #+#    #+#              #
-#    Updated: 2022/10/25 12:28:13 by him              ###   ########.fr        #
+#    Updated: 2022/10/26 21:41:22 by woohyeong        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+INC = 00_libft
 SRCS = $(addprefix ./mandatory/, ${SRCS_FILES})
-SRCS_FILES = pipex.c 
+SRCS_FILES = pipex.c pipex_util.c 
 SRCS_BONUS = $(addprefix ./bonus/, ${BONUS_FILES})
 BONUS_FILES = 	
 OBJS = $(SRCS:.c=.o)
@@ -37,10 +38,7 @@ together :
 	make bonus
 
 $(NAME) : $(TOTAL_OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
-
-%.o : %.c
-	$(CC) $(CFLAGS) -c -o $@ $^
+	$(CC) $(CFLAGS) -o libft.a $@ $^
 
 clean :
 	rm -rf $(OBJS) $(BONUS_OBJS)

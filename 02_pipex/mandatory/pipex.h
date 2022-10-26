@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: him <him@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: woohyeong <woohyeong@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 13:55:24 by him               #+#    #+#             */
-/*   Updated: 2022/10/25 17:38:13 by him              ###   ########.fr       */
+/*   Updated: 2022/10/26 20:58:57 by woohyeong        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <unistd.h>
 # include <fcntl.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include "../00_libft/libft.h"
 
 typedef struct s_arg
 {
@@ -23,6 +26,8 @@ typedef struct s_arg
 	char	*path;
 }t_arg;
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+void	execute(char *argv, char **envp);
+char	*find_path(char *cmd, char **envp);
+void	error_exit(char *str);
 
 #endif
