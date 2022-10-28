@@ -6,7 +6,7 @@
 #    By: woohyeong <woohyeong@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 12:25:30 by him               #+#    #+#              #
-#    Updated: 2022/10/26 21:41:22 by woohyeong        ###   ########.fr        #
+#    Updated: 2022/10/28 14:06:02 by woohyeong        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,24 +30,23 @@ endif
 
 all : $(NAME)
 
-bonus :
-	@make WITH_BONUS=1
-
-together :
-	make all
-	make bonus
+%.o : %.c
+	$(CC) $(CFLAGS) -c -o $@ $^	
 
 $(NAME) : $(TOTAL_OBJS)
-	$(CC) $(CFLAGS) -o libft.a $@ $^
+	make re -C ./00_libft
+	$(CC) $(CFLAGS) $(TOTAL_OBJS) -L00_libft -lft -o ${NAME}
 
 clean :
+	make fclean -C ./00_libft
 	rm -rf $(OBJS) $(BONUS_OBJS)
 
 fclean : clean
+	make fclean -C ./00_libft
 	rm -rf $(NAME) $(BONUS_NAME)
 
 re :
 	make fclean
 	make all
 
-.PHONY : all bonus clean fclean re together%
+.PHONY : all bonus clean fclean re%
