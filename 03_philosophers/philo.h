@@ -6,7 +6,7 @@
 /*   By: woohyeong <woohyeong@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:23:59 by woohyeong         #+#    #+#             */
-/*   Updated: 2022/12/22 17:54:00 by woohyeong        ###   ########.fr       */
+/*   Updated: 2022/12/29 22:19:10 by woohyeong        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,13 @@ typedef struct s_philo
 	pthread_t	thread;
 	
 } t_philo;
+
+typedef struct s_fork
+{
+	pthread_mutex_t	fork;
+	int				check_fork;
+} t_fork;
+
 
 
 //philo.c
