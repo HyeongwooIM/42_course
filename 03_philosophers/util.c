@@ -1,6 +1,8 @@
 
 #include "philo.h"
 
+
+
 void	print_philo(t_info *info, int id, int status)
 {
 	long long	now_time;
