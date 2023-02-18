@@ -6,7 +6,7 @@
 /*   By: woohyeong <woohyeong@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 20:40:36 by woohyeong         #+#    #+#             */
-/*   Updated: 2023/02/14 15:33:27 by woohyeong        ###   ########.fr       */
+/*   Updated: 2023/02/18 23:41:04 by woohyeong        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ int main(int argc, char **argv)
 		return (1);
 	init_info(&info);
 	init_philo(&philo, &info);
+	run_philo(&philo, &info);
 	return (0);
 }
