@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: woohyeong <woohyeong@student.42.fr>        +#+  +:+       +#+        */
+/*   By: him <him@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 20:40:36 by woohyeong         #+#    #+#             */
-/*   Updated: 2023/03/15 08:45:38 by woohyeong        ###   ########.fr       */
+/*   Updated: 2023/03/15 14:17:46 by him              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	ft_atoi(const char *s)
 	return (result * sign);
 }
 
-
 int	set_info(t_info *info, char **argv)
 {
 	int	i;
@@ -49,7 +48,8 @@ int	set_info(t_info *info, char **argv)
 	info->die_time = ft_atoi(argv[2]);
 	info->eat_time = ft_atoi(argv[3]);
 	info->sleep_time = ft_atoi(argv[4]);
-	if (info->philo_num < 1 || info->die_time < 1 || info->eat_time < 1 || info->sleep_time < 1)
+	if (info->philo_num < 1 || info->die_time < 1 \
+	|| info->eat_time < 1 || info->sleep_time < 1)
 		return (1);
 	if (argv[5])
 	{
@@ -63,7 +63,7 @@ int	set_info(t_info *info, char **argv)
 	info->die_flag = 0;
 	i = -1;
 	while (++i < info->philo_num)
-		info->fork_list[i] = UNTAKE;	
+		info->fork_list[i] = UNTAKE;
 	return (0);
 }
 
@@ -115,28 +115,14 @@ int	init_philo(t_philo **philo, t_info *info)
 		}
 		return_num = 0;
 	}
-	return (return_num);	
+	return (return_num);
 }
 
-void	free_mutex(t_info *info)
-{
-	int i;
-
-	i = -1;
-	while (++i < info->philo_num) {
-		pthread_mutex_destroy(&(info->fork[i]));
-	}
-	pthread_mutex_destroy(&(info->check_death));
-	pthread_mutex_destroy(&(info->check_death));
-	pthread_mutex_destroy(&(info->check_last_eat));
-	pthread_mutex_destroy(&(info->print));
-}
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_info	info;
 	t_philo	*philo;
-	
+
 	if (argc != 5 && argc != 6)
 		return (1);
 	if (set_info(&info, argv))

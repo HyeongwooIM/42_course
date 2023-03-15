@@ -1,5 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   util.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: him <him@student.42seoul.kr>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/15 14:10:08 by him               #+#    #+#             */
+/*   Updated: 2023/03/15 14:17:55 by him              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "philo.h"
+
+void	free_mutex(t_info *info)
+{
+	int	i;
+
+	i = -1;
+	while (++i < info->philo_num)
+		pthread_mutex_destroy(&(info->fork[i]));
+	pthread_mutex_destroy(&(info->check_death));
+	pthread_mutex_destroy(&(info->check_death));
+	pthread_mutex_destroy(&(info->check_last_eat));
+	pthread_mutex_destroy(&(info->print));
+}
 
 int	ft_usleep(int sleep_utime)
 {
@@ -34,8 +58,9 @@ void	act_ing(t_philo *philo, long long time)
 	start_time = init_time();
 	while ((init_time() - start_time < time))
 	{
-		if ((long long)philo->info->die_time < init_time() - philo->time_last_eat)
-			break;
+		if ((long long)philo->info->die_time < \
+		init_time() - philo->time_last_eat)
+			break ;
 		usleep(150);
 	}
 }

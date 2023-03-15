@@ -3,69 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   act.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: woohyeong <woohyeong@student.42.fr>        +#+  +:+       +#+        */
+/*   By: him <him@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 15:42:09 by woohyeong         #+#    #+#             */
-/*   Updated: 2023/03/12 01:09:19 by woohyeong        ###   ########.fr       */
+/*   Created: 2023/03/15 14:16:31 by him               #+#    #+#             */
+/*   Updated: 2023/03/15 14:16:46 by him              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	check_death(t_info *info)
-{
-	int	die;
-	
-	pthread_mutex_lock(&(info->check_death));
-	die = info->die_flag;
-	pthread_mutex_unlock(&(info->check_death));
-	return (die);
-}
-
-void	change_die_flag(t_info *info)
-{
-	pthread_mutex_lock(&(info->check_death));
-	info->die_flag = 1;
-	pthread_mutex_unlock(&(info->check_death));
-}
-
-void	set_last_eat(t_info *info, t_philo *philo)
-{
-	pthread_mutex_lock(&(info->check_last_eat));
-	philo->time_last_eat = init_time();
-	pthread_mutex_unlock(&(info->check_last_eat));
-}
-
-void	set_full_philo(t_info *info)
-{
-	if (info->max_eat == -1)
-		return ;
-	pthread_mutex_lock(&(info->check_full));
-	info->full_philo += 1;
-	pthread_mutex_unlock(&(info->check_full));
-}
-
-void	take_fork(t_info *info, t_philo *philo)
-{
-	pthread_mutex_lock(&info->fork[philo->fork_right]);
-	info->fork_list[philo->fork_right] = TAKE;
-	print_philo(info, philo->id, FORK);
-	pthread_mutex_lock(&info->fork[philo->fork_left]);
-	info->fork_list[philo->fork_left] = TAKE;
-	print_philo(info, philo->id, FORK);
-}
-
-void	untake_fork(t_info *info, t_philo *philo)
-{
-	info->fork_list[philo->fork_right] = UNTAKE;
-	pthread_mutex_unlock(&info->fork[philo->fork_right]);
-	info->fork_list[philo->fork_left] = UNTAKE;
-	pthread_mutex_unlock(&info->fork[philo->fork_left]);
-}
-
 int	eat_philo(t_philo *philo)
 {
-	t_info *info;
+	t_info	*info;
 
 	info = philo->info;
 	take_fork(info, philo);
@@ -84,28 +33,10 @@ int	eat_philo(t_philo *philo)
 	return (0);
 }
 
-void *one_philo(t_info *info, t_philo *philo)
+void	*act_philo(void *philo_ptr)
 {
-	pthread_mutex_lock(&info->fork[0]);
-	info->fork_list[0] = TAKE;
-	print_philo(info, philo->id, FORK);
-	while (1)
-	{
-		if (check_death(info))
-		{
-			info->fork_list[0] = UNTAKE;
-			pthread_mutex_unlock(&info->fork[0]);
-			return (0);
-		}
-		usleep(250);
-	}
-	return (0);
-}
+	t_philo	*philo;
 
-static void	*act_philo(void *philo_ptr)
-{
-	t_philo *philo;
-	
 	philo = (t_philo *)philo_ptr;
 	if (philo->info->philo_num == 1)
 		return (one_philo(philo->info, philo));
@@ -174,7 +105,7 @@ void	*monitoring(void *philos)
 
 void	run_philo(t_philo *philo, t_info *info)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	info->start_time = init_time();

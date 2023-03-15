@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: woohyeong <woohyeong@student.42.fr>        +#+  +:+       +#+        */
+/*   By: him <him@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 20:41:01 by woohyeong         #+#    #+#             */
-/*   Updated: 2023/03/08 10:13:05 by woohyeong        ###   ########.fr       */
+/*   Created: 2023/03/15 14:11:39 by him               #+#    #+#             */
+/*   Updated: 2023/03/15 14:21:15 by him              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_info
 	pthread_mutex_t	check_full;
 	pthread_mutex_t	check_last_eat;
 	pthread_mutex_t	print;
-} t_info;
+}	t_info;
 
 typedef struct s_philo
 {
@@ -55,15 +55,20 @@ typedef struct s_philo
 	long long		time_last_eat;
 	pthread_t		thread;
 	t_info			*info;
-} t_philo;
+}	t_philo;
 
 long long	init_time(void);
-void	run_philo(t_philo *philo, t_info *info);
-int		check_death(t_info *info);
-void	print_philo(t_info *info, int id, int status);
-void	act_ing(t_philo *philo, long long time);
-int		ft_usleep(int sleep_utime);
+void		run_philo(t_philo *philo, t_info *info);
+int			check_death(t_info *info);
+void		print_philo(t_info *info, int id, int status);
+void		act_ing(t_philo *philo, long long time);
+int			ft_usleep(int sleep_utime);
+void		free_mutex(t_info *info);
+void		*one_philo(t_info *info, t_philo *philo);
+void		change_die_flag(t_info *info);
+void		set_last_eat(t_info *info, t_philo *philo);
+void		set_full_philo(t_info *info);
+void		take_fork(t_info *info, t_philo *philo);
+void		untake_fork(t_info *info, t_philo *philo);
 
-
-
-# endif
+#endif

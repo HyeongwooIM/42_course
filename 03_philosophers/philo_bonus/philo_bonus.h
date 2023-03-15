@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo_bonus.h                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: him <him@student.42seoul.kr>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/15 14:29:20 by him               #+#    #+#             */
+/*   Updated: 2023/03/15 14:29:27 by him              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILO_BONUS_H
 # define PHILO_BONUS_H
 
@@ -30,7 +42,7 @@ typedef struct s_info
 	sem_t			*fork;
 	sem_t			*print;
 	sem_t			*check_last_eat;
-} t_info;
+}	t_info;
 
 typedef struct s_philo
 {
@@ -39,6 +51,15 @@ typedef struct s_philo
 	long long		time_last_eat;
 	pthread_t		thread;
 	t_info			*info;
-} t_philo;
+}	t_philo;
+
+void		print_philo(t_info *info, int id, int status);
+void		kill_pids(t_info *info, int id);
+void		ft_error(char *message);
+long long	init_time(void);
+void		free_process(t_info *info, t_philo *philo);
+int			ft_atoi(const char *s);
+void		wait_time(long long time);
+int			init_process(t_info *info, t_philo *philo);
 
 #endif

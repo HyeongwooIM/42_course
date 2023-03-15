@@ -1,16 +1,26 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: him <him@student.42seoul.kr>               +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/03/15 14:31:00 by him               #+#    #+#              #
+#    Updated: 2023/03/15 14:31:01 by him              ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = cc
-CFLAGS = -Wall -Werror -Wextra  -fsanitize=thread -g3
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g3
 #  -fsanitize=thread -g3
 SRCS = philo_bonus.c \
-			# util.c 
-			# act.c
+			act_bonus.c \
+			util_bonus.c \
+			util2_bonus.c
 OBJS = $(SRCS:%.c=%.o)
 NAME = philo_bonus
 
 all : $(NAME)
-
-# %.o : %.c
-# 	@$(CC) $(CFLAGS) -c -o $@ $^
 
 $(NAME) : $(OBJS)
 	@$(CC) $(CFLAGS) -o ${NAME} ${OBJS}
