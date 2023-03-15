@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra  -fsanitize=thread -g3
 #  -fsanitize=thread -g3
 SRCS = philo_bonus.c \
 			# util.c 
