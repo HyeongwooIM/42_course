@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fork.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: him <him@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: woohyeong <woohyeong@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:06:20 by him               #+#    #+#             */
-/*   Updated: 2023/01/27 17:57:03 by him              ###   ########.fr       */
+/*   Updated: 2023/03/24 19:59:53 by woohyeong        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	wait_child(int pipe_cnt)
 		wait(&status);
 	if (status == 2)
 	{
-		printf("\n");
+		printf("^C\n");
 		g_info.last_exit_num = status + 128;
 	}
 	else if (status == 3)

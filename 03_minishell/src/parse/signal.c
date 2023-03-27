@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: him <him@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: woohyeong <woohyeong@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:05:49 by him               #+#    #+#             */
-/*   Updated: 2023/01/27 17:58:29 by him              ###   ########.fr       */
+/*   Updated: 2023/03/24 18:44:48 by woohyeong        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	heredoc_sigint_handler(int signo)
 {
 	if (signo == SIGINT)
 		exit (1);
-	ft_putendl_fd("", STDOUT_FILENO);
+	ft_putendl_fd("", STDOUT_FILENO);	
 	exit(0);
 }
 

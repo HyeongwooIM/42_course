@@ -1,0 +1,9 @@
+*.DS_Store
+*/.history/
+/.history/
+*/.idea/
+/.idea/
+*/cmake-build-debug/
+/cmake-build-debug/
+cmake-build-debug
+*.o

@@ -6,7 +6,7 @@
 /*   By: woohyeong <woohyeong@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:21:47 by him               #+#    #+#             */
-/*   Updated: 2023/03/22 14:10:32 by woohyeong        ###   ########.fr       */
+/*   Updated: 2023/03/17 13:45:17 by woohyeong        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,14 @@ void	wait_process(t_info *info)
 	while (++i < info->philo_num)
 	{
 		temp = wait(&status);
-		if (temp)
-			;
+		printf("%d \n", temp);
 		if (status != 0)
 		{
 			kill_pids(info, info->philo_num);
 			usleep(2000);
 			sem_post(info->print);
 			sem_post(info->check_last_eat);
-			// break ;
+			break ;
 		}
 		sem_post(info->print);
 		sem_post(info->check_last_eat);
@@ -108,7 +107,5 @@ int	main(int argc, char *argv[])
 		ft_error("Philo process failed");
 	wait_process(&info);
 	free_process(&info, philo);
-	while(1)
-		;
 	return (0);
 }

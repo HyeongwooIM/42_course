@@ -50,8 +50,8 @@ OBJS = $(SRCS:.c=.o)
 NAME = minishell
 TOTAL_OBJS = $(OBJS)
 LIBFT = -Llibft -lft
-READLINE_HDR = -I/Users/him/.brew/opt/readline/include
-READLINE_LIB = -L/Users/him/.brew/opt/readline/lib -lreadline
+READLINE_HDR = -I/opt/homebrew/opt/readline/include
+READLINE_LIB = -L/opt/homebrew/opt/readline/lib -lreadline
 all : $(NAME)
 
 %.o : %.c
