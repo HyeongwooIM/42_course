@@ -1,6 +1,6 @@
 # include "Contact.hpp"
 
-void	Contact::setFistName(std::string firstName)
+void	Contact::setFirstName(std::string firstName)
 {
 	this->_firstName = firstName;
 }
@@ -28,7 +28,7 @@ std::string	Contact::getLastName()
 {
 	return _lastName;
 }
-std::string	Contact::getNickname()
+std::string	Contact::getNickName()
 {
 	return _nickName;
 }

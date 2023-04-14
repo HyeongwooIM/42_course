@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_here_doc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: him <him@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: woohyeong <woohyeong@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:32:35 by him               #+#    #+#             */
-/*   Updated: 2023/01/29 16:23:37 by him              ###   ########.fr       */
+/*   Updated: 2023/04/05 13:40:06 by woohyeong        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	read_doc(int *fd, char *with)
 	while (1)
 	{
 		buff = readline("heredoc> ");
+		if (buff == 0)
+			exit(0);
 		if (ft_strcmp(buff, with) == 0)
 		{
 			write(fd[1], "\0", 1);

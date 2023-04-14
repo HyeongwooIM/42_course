@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: him <him@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: woohyeong <woohyeong@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 21:48:30 by him               #+#    #+#             */
-/*   Updated: 2023/01/26 21:48:35 by him              ###   ########.fr       */
+/*   Updated: 2023/04/05 13:44:13 by woohyeong        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	ft_strcmp(const char *str1, const char *str2)
 {
+	if (!str1 || !str2)
+		return (1);
 	while (*str1 || *str2)
 	{
 		if (*str1 != *str2)

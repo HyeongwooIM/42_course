@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 INCLUDES = -I./includes
 SRCS = $(addprefix ./src/, ${SRCS_FILES})
 SRCS_FILES = parse/parse.c \
