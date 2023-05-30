@@ -6,7 +6,7 @@
 /*   By: him <him@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 03:09:29 by cheseo            #+#    #+#             */
-/*   Updated: 2023/05/23 17:03:20 by him              ###   ########.fr       */
+/*   Updated: 2023/05/30 12:46:57 by him              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 
 # include "rt_struct.h"
-# include "mlx.h"
+# include "../mlx/mlx.h"
 
 int			camera_moving(int keycode, t_scene *scene);
 

@@ -6,14 +6,14 @@
 /*   By: him <him@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:34:47 by him               #+#    #+#             */
-/*   Updated: 2023/05/23 17:03:10 by him              ###   ########.fr       */
+/*   Updated: 2023/05/30 12:47:19 by him              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
 #include "libft.h"
-#include "mlx.h"
+#include "../mlx/mlx.h"
 #include "parse.h"
 #include "rt_struct.h"
 #include "scene.h"

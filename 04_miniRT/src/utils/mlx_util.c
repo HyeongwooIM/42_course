@@ -6,11 +6,11 @@
 /*   By: him <him@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 17:15:47 by cheseo            #+#    #+#             */
-/*   Updated: 2023/05/23 17:03:25 by him              ###   ########.fr       */
+/*   Updated: 2023/05/30 12:47:21 by him              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
+#include "../mlx/mlx.h"
 #include "rt_struct.h"
 #include "scene.h"
 #include "trace.h"
