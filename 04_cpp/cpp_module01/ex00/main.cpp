@@ -1,6 +1,6 @@
 #include "Zombie.hpp"
 
-int main()
+void main2()
 {
 	Zombie	zombieStack = Zombie("stackZombie");
 	Zombie	*zombieHeap = new Zombie("heapZombie");
@@ -11,5 +11,11 @@ int main()
 	zombieNew->announce();
 	randomChump("randomChump");
 	delete zombieHeap;
-	atexit("");
+	delete zombieNew;
+}
+
+int main()
+{
+	main2();
+	system("leaks Zombie");
 }
