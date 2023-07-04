@@ -23,6 +23,7 @@ int main(int ac, char **av)
 	}
 	if(!fileDst.is_open())
 	{
+		fileSrc.close();
 		std::cout << "[Error] File open fail : ofstream" << std::endl;
 		return 1;
 	}
@@ -31,6 +32,8 @@ int main(int ac, char **av)
 	if (s1.empty())
 	{
 		std::cout << "[Error] s1 is empty" << std::endl;
+		fileSrc.close();
+		fileDst.close();
 		return 1;
 	}
 	while (std::getline(fileSrc, buff, '\0'))
@@ -38,6 +41,8 @@ int main(int ac, char **av)
 		if (fileSrc.fail())
 		{
 			std::cout << "[Error] can't read file" << std::endl;
+			fileSrc.close();
+			fileDst.close();
 			return 1;
 		}
 		if (std::cin.eof())
@@ -51,5 +56,5 @@ int main(int ac, char **av)
 		}
 		fileDst << buff;
 	}
-
+	fileDst.close();
 }

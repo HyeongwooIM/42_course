@@ -1,6 +1,6 @@
-NAME = Zombie
+NAME = Violence
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = Zombie.cpp main.cpp HordeZombie.cpp
+SRCS = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

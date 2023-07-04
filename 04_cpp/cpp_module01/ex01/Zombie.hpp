@@ -2,6 +2,7 @@
 # define ZOMBIE_HPP
 
 # include <iostream>
+# include <sstream> 
 
 class Zombie {
 	private:
@@ -15,6 +16,6 @@ class Zombie {
 		~Zombie();
 };
 
-Zombie* HordeZombie( int N, std::string name );
+Zombie* zombieHorde(int N, std::string name);
 
 # endif
