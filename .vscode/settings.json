@@ -62,6 +62,12 @@
     "variant": "cpp",
     "vector": "cpp",
     "algorithm": "cpp",
-    "libft.h": "c"
+    "libft.h": "c",
+    "fstream": "cpp",
+    "__verbose_abort": "cpp",
+    "bit": "cpp",
+    "deque": "cpp",
+    "iomanip": "cpp",
+    "stack": "cpp"
   }
 }

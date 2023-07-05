@@ -90,7 +90,7 @@ void	PhoneBook::printAll()
 
 void	PhoneBook::commandExit()
 {
-	std::cout<<"exit";
+	std::cout << "exit";
 	exit(0);
 }
 

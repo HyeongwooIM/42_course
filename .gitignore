@@ -8,3 +8,5 @@
 cmake-build-debug
 *.o
 .vscode
+.DS_Store
+/.vscode
