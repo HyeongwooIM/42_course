@@ -9,7 +9,7 @@ void main2()
 
 	std::cout << "stringVAR: " << &stringVAR << std::endl;
 	std::cout << "stringVAR2: " << &stringCopy << std::endl;
-	std::cout << "stringPTR: " << &stringPTR << std::endl;
+	std::cout << "stringPTR: " << stringPTR << std::endl;
 	std::cout << "stringREF: " << &stringREF << std::endl;
 
 	std::cout << "stringVAR: " << stringVAR << std::endl;
