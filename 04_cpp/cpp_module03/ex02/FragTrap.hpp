@@ -13,6 +13,11 @@ class FragTrap: public ClapTrap {
 
 		void highFivesGuys();
 		void attack(const std::string &target);
+		enum status{
+			HP = 100,
+			ENERGY = 100,
+			ATTACK = 30
+		};
 };
 
 # endif

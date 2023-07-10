@@ -11,16 +11,15 @@ void main2()
 	trap1.attack("Trap2");
 	trap2.takeDamage(trap1.getAttackDamage());
 	trap2.beRepaired(10);
-
+	trap1.printStatus();
+	trap2.printStatus();
 	std::cout << std::endl;
-
 	trap1.attack("Trap2");
 	trap2.guardGate();
-
 	std::cout << std::endl;
-
 	trap1.highFivesGuys();
-	
+	trap1.printStatus();
+	trap2.printStatus();
 	std::cout << std::endl;
 }
 

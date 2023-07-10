@@ -1,16 +1,16 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(): ClapTrap() {
-	_hitPoints = 100;
-	_energyPoints = 50;
-	_attackDamage = 20;
+	_hitPoints = HP;
+	_energyPoints = ENERGY;
+	_attackDamage = ATTACK;
 	std::cout << "ScavTrap " << _name << " constructor created" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name) {
-	_hitPoints = 100;
-	_energyPoints = 50;
-	_attackDamage = 20;
+	_hitPoints = HP;
+	_energyPoints = ENERGY;
+	_attackDamage = ATTACK;
 	std::cout << "ScavTrap " << _name << " constructor created" << std::endl;
 }
 

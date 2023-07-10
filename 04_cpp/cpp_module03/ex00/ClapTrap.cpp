@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(): _name("Default"), _hitPoints(10), _energyPoints(10),_attackDamage(0){
+ClapTrap::ClapTrap(): _name("Default"), _hitPoints(HP), _energyPoints(ENERGY),_attackDamage(ATTACK){
 	std::cout << "ClapTrap " << _name << "constructor created" << std::endl;
 }
 
@@ -70,15 +70,31 @@ void ClapTrap::beRepaired(unsigned int amount)
 		return ;
 	}
 	_energyPoints -= 1;
-	if ( (amount + _hitPoints) >= 10)
-		_hitPoints = 10;
+	if ( (amount + _hitPoints) >= HP)
+		_hitPoints = HP;
 	else
 		_hitPoints += amount;
 	std::cout << _name << " is repaired " << amount << " points of health!" << std::endl;
 
 }
 
-int ClapTrap::getAttackDamage(void) const
-{
+unsigned int ClapTrap::getAttackDamage(void) const {
 	return _attackDamage;
+}
+
+unsigned int ClapTrap::getEnergyPoints(void) const {
+	return _energyPoints;
+}
+
+unsigned int ClapTrap::getHitPoints(void) const {
+	return _hitPoints;
+}
+
+void ClapTrap::printStatus(void) const{
+	std::cout << _name << " status" << std::endl;
+	std::cout << "------------------------" << std::endl;
+	std::cout << "HitPoints : " << _hitPoints << std::endl;
+	std::cout << "AtaackDamage : " << _attackDamage << std::endl;
+	std::cout << "EnergyPoints : " << _energyPoints << std::endl;
+	std::cout << "------------------------" << std::endl;
 }

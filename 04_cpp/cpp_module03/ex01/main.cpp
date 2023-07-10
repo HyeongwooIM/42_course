@@ -10,13 +10,19 @@ int	main()
 	std::cout << std::endl;
 	trap1.attack("B");
 	trap2.takeDamage(trap1.getAttackDamage());
-	trap2.beRepaired(10);
+	trap2.beRepaired(1000);
+	std::cout << std::endl;
+	trap1.printStatus();
+	trap2.printStatus();
 	std::cout << std::endl;
 	trap1.attack("B");
 	trap2.takeDamage(trap1.getAttackDamage());
 	trap2.beRepaired(10);
 	std::cout << std::endl;
 	trap1.guardGate();
+	trap1.printStatus();
+	trap2.printStatus();
 	std::cout << std::endl;
+	delete trap3;
 	return 0;
 }

@@ -13,6 +13,11 @@ class ScavTrap: public ClapTrap{
 
 		void			guardGate();
 		void attack(const std::string &target);
+		enum status{
+			HP = 100,
+			ENERGY = 50,
+			ATTACK = 20
+		};
 };
 
 #endif

@@ -1,16 +1,16 @@
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap(): ClapTrap() {
-	_hitPoints = 100;
-	_energyPoints = 100;
-	_attackDamage = 30;
+	_hitPoints = HP;
+	_energyPoints = ENERGY;
+	_attackDamage = ATTACK;
 	std::cout << "FragTrap " << _name << " constructor created" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name): ClapTrap(name) {
-	_hitPoints = 100;
-	_energyPoints = 100;
-	_attackDamage = 30;
+	_hitPoints = HP;
+	_energyPoints = ENERGY;
+	_attackDamage = ATTACK;
 	std::cout << "FragTrap " << _name << " constructor created" << std::endl;
 }
 
