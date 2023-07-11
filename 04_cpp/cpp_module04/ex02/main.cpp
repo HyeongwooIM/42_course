@@ -1,36 +1,19 @@
-#include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp"
+#include "Dog.hpp"
 
-int	main2()
-{
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << "j is " << j->getType() << " " << std::endl;
-	std::cout << "i is " << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
+int main() {
+	{
+		Animal *animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
 
-	delete meta;
-	delete j;
-	delete i;
+		for (int i = 0; i < 4; i++)
+			std::cout << animals[i]->getType() << std::endl;
 
-	WrongAnimal* wrong = new WrongAnimal();
-	WrongAnimal* wrongCat = new WrongCat();
-	wrong->makeSound();
-	wrongCat->makeSound();
+		for (int i = 0; i < 4; i++)
+			delete animals[i];
+	}
+	{
+		// Animal animal; // error: cannot declare variable 'animal' to be of abstract type 'AAnimal'
+	}
 
-	delete wrong;
-	delete wrongCat;
-
-	return 0;
-}
-
-int	main()
-{
-	main2();
-	system("leaks Animal");
 	return 0;
 }

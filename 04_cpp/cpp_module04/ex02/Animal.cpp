@@ -23,10 +23,10 @@ Animal &Animal::operator=(Animal const &rhs)
 	return (*this);
 }
 
-void Animal::makeSound() const
-{
-	std::cout << "Animal make sound : ..." << std::endl;
-}
+// void Animal::makeSound() const
+// {
+// 	std::cout << "Animal make sound : ..." << std::endl;
+// }
 std::string Animal::getType() const
 {
 	return _type;

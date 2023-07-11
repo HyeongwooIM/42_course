@@ -18,6 +18,7 @@ Brain::~Brain()
 {
 	std::cout << "Brain destructor called" << std::endl;
 }
+
 Brain& Brain::operator=(Brain const &rhs)
 {
 	std::cout << "Brain copy assignment called" << std::endl;

@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-int	main()
+void main2()
 {
 	ScavTrap trap1("A");
 	ScavTrap trap2("B");
@@ -24,5 +24,11 @@ int	main()
 	trap2.printStatus();
 	std::cout << std::endl;
 	delete trap3;
+}
+
+int	main()
+{
+	main2();
+	system("leaks ScavTrap");
 	return 0;
 }

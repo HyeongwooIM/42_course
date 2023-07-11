@@ -25,7 +25,7 @@ Animal &Animal::operator=(Animal const &rhs)
 
 void Animal::makeSound() const
 {
-	std::cout << "Animal make sound : ..." << std::endl;
+	std::cout << "Animal make sound : default" << std::endl;
 }
 std::string Animal::getType() const
 {
