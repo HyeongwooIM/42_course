@@ -66,9 +66,9 @@ void	PhoneBook::printAll()
 	{
 		if (i == 8)
 			break ;
-		firstName = this->_contact[i].getFirstName();
-		lastName = this->_contact[i].getLastName();
-		nickName = this->_contact[i].getNickName();
+		firstName = _contact[i].getFirstName();
+		lastName = _contact[i].getLastName();
+		nickName = _contact[i].getNickName();
 		if (firstName.length() > 10)
 			firstName = firstName.substr(0, 9) + ".";
 		if (lastName.length() > 10)

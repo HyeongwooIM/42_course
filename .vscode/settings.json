@@ -68,6 +68,8 @@
     "bit": "cpp",
     "deque": "cpp",
     "iomanip": "cpp",
-    "stack": "cpp"
+    "stack": "cpp",
+    "functional": "cpp",
+    "filesystem": "cpp"
   }
 }

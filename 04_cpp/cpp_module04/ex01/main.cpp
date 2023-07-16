@@ -18,6 +18,7 @@ int main2()
 		Dog  *dog1 = new Dog();
 		Dog dog2;
 		dog2 = *dog1;
+		std::cout << &dog2 << std::endl << dog1 << std::endl;
 		delete dog1;
 	}
 

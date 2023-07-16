@@ -25,7 +25,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
 		_energyPoints = rhs._energyPoints;
 		_attackDamage = rhs._attackDamage;
 	}
-	std::cout << "ClapTrap " << this->_name << " copy assignment called" << std::endl;
+	std::cout << "ClapTrap " << _name << " copy assignment called" << std::endl;
 	return *this;
 }
 
