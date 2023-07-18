@@ -56,8 +56,20 @@ Convert::Convert(const char *str):
 	, _isFloat(false)
 {
 	char *endptr = NULL;
+	if (strlen(str) == 1)
+	{
+		_c = static_cast<char>(*str);
+		_i = static_cast<int>(str[0]);
+		_f = static_cast<float>(*str);
+		_d = static_cast<double>(_i);
+		_isChar = true;
+		_isFloat = true;
+		_isInt = true;
+		std::cout << _c << _i << _f << _d << std::endl;
+	}
+	else {
 	_d = strtod(str, &endptr);
-	if (strcmp(endptr, "f") != 0 && *endptr)
+	if (*endptr && strcmp(endptr, "f") != 0 )
 		_isNan = true;
 	_f = static_cast<float>(_d);
 	_i = static_cast<int>(_d);
@@ -68,6 +80,7 @@ Convert::Convert(const char *str):
 		_isInt = true;
 	if (static_cast<double>(_f) == _d)
 		_isFloat = true;
+	}
 }
 
 void	Convert::printChar()

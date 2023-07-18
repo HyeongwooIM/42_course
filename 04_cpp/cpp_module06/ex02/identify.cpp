@@ -4,7 +4,6 @@
 
 Base *generate(void) {
 	srand(time(NULL));
-
 	try {
 		switch(std::rand() % 3) {
 			case 0:
