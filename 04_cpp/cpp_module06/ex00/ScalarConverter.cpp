@@ -56,10 +56,10 @@ Convert::Convert(const char *str):
 	, _isFloat(false)
 {
 	char *endptr = NULL;
-	if (strlen(str) == 1)
+	if (strlen(str) == 3 && str[0] == '\'' && str[2] == '\'')
 	{
 		_c = static_cast<char>(*str);
-		_i = static_cast<int>(str[0]);
+		_i = static_cast<int>(str[1]);
 		_f = static_cast<float>(*str);
 		_d = static_cast<double>(_i);
 		_isChar = true;
@@ -119,7 +119,7 @@ void	Convert::printFloat()
 		return ;
 	}
 	std::cout << "float: " << std::setprecision(6) << _f;
-	if (std::floorf(_f) == _f && (_f <= 1000000 && _f >= -1000000))
+	if (std::floor(_f) == _f && (_f <= 1000000 && _f >= -1000000))
 		std::cout << ".0";
 	std::cout << "f" << std::endl;
 }
