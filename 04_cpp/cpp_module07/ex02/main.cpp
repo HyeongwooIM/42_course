@@ -5,11 +5,18 @@ void testLeak() {
 
     std::cout << "\n------ a test ------\n" << std::endl;
 	Array<int> a(5);
+	
 	for (unsigned int i = 0; i < a.size(); i++)
 		a[i] = rand() % 100;
+	
 	// for (unsigned int i = 0; i < a.size(); i++)
 	// 	std::cout << a[i] << std::endl;
     a.print();
+
+	std::cout << "\n------ Const test ------\n" << std::endl;
+	const Array<int> constTest(a);
+	std::cout << constTest[0] << std::endl;
+	constTest.print();
 	
     std::cout << "\n------ b test ------\n" << std::endl;
 	Array<int> b(a);

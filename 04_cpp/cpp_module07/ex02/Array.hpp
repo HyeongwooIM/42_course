@@ -33,13 +33,22 @@ class Array
 			}
 			return *this;
 		};
+
 		T& operator[](unsigned int i)
 		{
 			if (i >= _size)
 				throw InvalidIndexException();
 			return _array[i];
 		};
+
+		const T& operator[](unsigned int i) const {
+			if (i >= _size)
+				throw InvalidIndexException();
+			return _array[i];
+		};
+
 		unsigned int size() const { return _size; };
+
 		void print() const {
 			for(unsigned int i = 0; i < _size; i++)
 				std::cout << _array[i] << "\n";
