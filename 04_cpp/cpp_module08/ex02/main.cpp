@@ -1,26 +1,32 @@
 #include "MutantStack.hpp"
 #include <list>
 
-void testList() {
-	std::list<int> mstack;
-	mstack.push_back(5);
-	mstack.push_back(17);
-	std::cout << mstack.back() << std::endl;
-	mstack.remove(mstack.back());
-	std::cout << mstack.size() << std::endl;
-	mstack.push_back(3);
-	mstack.push_back(5);
-	mstack.push_back(737);
-	mstack.push_back(0);
-	std::list<int>::iterator it = mstack.begin();
-	std::list<int>::iterator ite = mstack.end();
-	++it;
-	--it;
-	while (it != ite) {
-		std::cout << *it << std::endl;
-		++it;
-	}
-}
+// int main() {
+// 	std::list<int> mstack;
+// 	mstack.push_back(5);
+// 	mstack.push_back(17);
+// 	std::cout << mstack.back() << std::endl;
+// 	mstack.remove(mstack.back());
+// 	std::cout << mstack.size() << std::endl;
+// 	mstack.push_back(3);
+// 	mstack.push_back(5);
+// 	mstack.push_back(737);
+// 	mstack.push_back(0);
+// 	std::list<int>::iterator it = mstack.begin();
+// 	std::list<int>::iterator ite = mstack.end();
+// 	++it;
+// 	--it;
+// 	while (it != ite) {
+// 		std::cout << *it << std::endl;
+// 		++it;
+// 	}
+// 	std::list<int>::reverse_iterator itit = mstack.rbegin();
+// 	++itit;
+// 	std::cout << *itit << std::endl;
+// 	std::list<int>::reverse_iterator itite = mstack.rend();
+// 	--itite;
+// 	std::cout << *itite << std::endl;
+// }
 
 int main() {
 	MutantStack<int> mstack;
@@ -41,6 +47,14 @@ int main() {
 		std::cout << *it << std::endl;
 		++it; 
 	}
+	
+	MutantStack<int>::reverse_iterator itit = mstack.rbegin();
+	++itit;
+	std::cout << *itit << std::endl;
+	MutantStack<int>::reverse_iterator itite = mstack.rend();
+	--itite;
+	std::cout << *itite << std::endl;
+
 	std::stack<int> s;
 	return 0;
 }

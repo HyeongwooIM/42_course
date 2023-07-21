@@ -9,9 +9,9 @@ class NotFoundException : public std::exception {
 };
 
 template<typename T>
-typename T::iterator easyfind(T &src, int toFind)
+typename T::iterator easyfind(T &src, int findValue)
 {
-	typename T::iterator it = std::find(src.begin(), src.end(), toFind);
+	typename T::iterator it = std::find(src.begin(), src.end(), findValue);
 	if (it == src.end())
 		throw NotFoundException();
 	return it;
