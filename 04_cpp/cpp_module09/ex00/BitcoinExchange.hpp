@@ -18,6 +18,7 @@ class BitcoinExchange {
 
 	private:
 		std::map<std::string, float> _dataBase;
+		std::map<std::string, float> _csv;
 		BitcoinExchange(const BitcoinExchange& origin);
 		BitcoinExchange& operator=(const BitcoinExchange& BitcoinExchange);
 

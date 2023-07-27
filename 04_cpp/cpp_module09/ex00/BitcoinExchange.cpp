@@ -1,9 +1,28 @@
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange() {
-	// std::string filePath("data.csv");
-	// size_t dotPos = filePath.rfind('.');
-	// csvToMap(filePath);
+	std::string fileName("data.csv");	
+	std::ifstream infile(fileName);
+	if (!infile.is_open()) {
+		std::cout << "[Error] : data.csv file open failed" << std::endl; 
+		exit(1);
+	}
+	std::string line;
+	std::getline(infile, line);
+	if (line != "date,exchange_rate") {
+		std::cout << "[Error] : Invalid file information." << std::endl; 
+		exit(1);
+	}
+	while (std::getline(infile, line)) {
+			std::istringstream iss(line);
+			std::string dateString;
+			float value;
+			if (std::getline(iss, dateString, ',') && iss >> value) {
+				dateString.erase(dateString.size());
+			_csv[dateString] = value;
+			std::cout << dateString << " -> " << value << std::endl;
+		}
+	}
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &src)
@@ -88,8 +107,14 @@ void BitcoinExchange::addData(std::string& line) {
 			|| day != beforeDate->tm_mday) {
 			throw std::invalid_argument("Error : Not a positive date " + line);
 		}
+		std::map<std::string, float>::iterator it = _csv.lower_bound(dateString);
         _dataBase[dateString] = value;
-		std::cout << dateString << " -> " << value << std::endl;
+		if (_csv.end() == it)
+			throw std::invalid_argument("Error : Can't find vlaue " + line);
+		if (_csv.begin() != it && it->first != dateString)
+			--it;
+		std::cout << it->first << std::endl;
+		std::cout << dateString << " => " << value << " * " << it->second << " = " << value * it->second << std::endl;
     } else 
         throw std::invalid_argument("Error : Can't find '|' " + line);
 }
@@ -102,4 +127,3 @@ void BitcoinExchange::printAllDataBase() const {
         std::cout << key << " -> " << value << std::endl;
     }
 }
-

@@ -36,6 +36,7 @@ int main(int ac, char **av)
 		try {
 			// std::pair<std::string, float> pair = bitCoin.makePair(str);
 			bitCoin.addData(line);
+			// bitCoin.printValue();
 		}
 		catch (std::exception &e) {
 			std::cout << e.what() << std::endl;
