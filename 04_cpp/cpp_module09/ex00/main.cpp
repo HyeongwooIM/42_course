@@ -20,7 +20,7 @@ int main(int ac, char **av)
 		std::cout << "[Error] : Invalid file format. Valid file format -> .txt" << std::endl;
 		return (1);
 	}	
-	std::ifstream infile(fileName);
+	std::ifstream infile(fileName.c_str());
 	if (!infile.is_open()) {
 		std::cout << "[Error] : file open failed." << std::endl;
 		return (1);

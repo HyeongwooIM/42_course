@@ -3,6 +3,10 @@
 
 #include <iostream>
 #include <fstream>
+#include <ctime>
+#include <string>
+#include <unistd.h>
+#include <stdlib.h>
 #include <sstream>
 #include <map>
 
