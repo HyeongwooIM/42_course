@@ -1,6 +1,6 @@
-NAME = btc
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp BitcoinExchange.cpp
+NAME = ircserv
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+SRCS = main.cpp Server.cpp Client.cpp Channel.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
